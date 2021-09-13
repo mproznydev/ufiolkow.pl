@@ -1,0 +1,14 @@
+.HeroImg{
+    display: none;
+}
+
+@Media (min-width: 668px)
+{
+    .HeroImg{
+        grid-row: 2/3;
+        grid-column: 3/5;
+        overflow: visible;
+        display: inline-block;
+        }
+    }
+    
