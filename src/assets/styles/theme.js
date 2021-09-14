@@ -13,14 +13,14 @@ export const theme = {
       l: '2.4rem',
       xl: '3rem',
       xxl: '3.8rem',
-      xxxl: '4.5rem',
-      xxxxl: '6rem',
+      xxxl: '5rem',
+      xxxxl: '5.5rem',
     },
   },
   mq: {
     tablet: `@media (min-width: 668px)`,
     desktop: `@media (min-width: 1024px)`,
-    large: `@media (min-width: 1440px)`,
+    large: `@media (min-width: 1540px)`,
   },
   underlinePurple: () => `
       &::before {

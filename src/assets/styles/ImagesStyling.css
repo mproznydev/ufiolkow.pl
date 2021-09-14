@@ -1,0 +1,32 @@
+.HeroImgWrapper{
+    display: none;
+}
+
+        @Media (min-width: 668px)
+        {
+            .HeroImgWrapper{
+                filter: drop-shadow(8px 0px 8px rgba(0, 0, 0, 0.25));
+                width: fit-content;
+                max-width: 550px;
+                display: inline-block;
+                
+                }
+            }
+
+        @Media (min-width: 1540px)
+        {
+            .HeroImgWrapper{
+                max-width: 650px;
+                }
+            }
+
+.HeroImg{
+    width: 100%;
+    height: 100%;
+}
+
+
+.SectionImage{
+    border-radius: 8px;
+    box-shadow: 0 10px 10px rgb(0 0 0 / 0.3);
+}

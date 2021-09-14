@@ -9,9 +9,13 @@ const Wrapper = styled.div`
   z-index: 9999;
   position: relative;
   align-items: flex-start;
-  height: 9vh;
+  height: 7vh;
   display: flex;
   justify-content: space-between;
+
+  ${({ theme }) => theme.mq.desktop} {
+    align-items: center;
+  }
 `;
 
 function Header() {

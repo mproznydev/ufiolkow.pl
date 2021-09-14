@@ -16,6 +16,14 @@ const Wrapper = styled.div`
     isOpen ? 'traslateX(0)' : 'translateX(-100vw)'};
   transition: transform 0.5s ease-in-out;
 
+  ${({ theme }) => theme.mq.desktop} {
+    height: auto;
+    width: auto;
+    position: static;
+    transform: none;
+    background-color: transparent;
+  }
+
   & ul {
     align-self: flex-start;
     list-style: none;
@@ -24,6 +32,12 @@ const Wrapper = styled.div`
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
+
+    ${({ theme }) => theme.mq.desktop} {
+      flex-direction: row;
+      height: auto;
+      align-self: center;
+    }
   }
 `;
 
@@ -32,6 +46,20 @@ const NavigationEl = styled.li`
   text-align: center;
   font-weight: 700;
   font-size: ${({ theme }) => theme.font.size.s};
+
+  ${({ theme }) => theme.mq.desktop} {
+    margin: 0 0.6rem;
+    font-size: ${({ theme }) => theme.font.size.xxs};
+  }
+  ${({ theme }) => theme.mq.large} {
+    margin: 0 1.5rem;
+  }
+`;
+
+const StyledSocialIcons = styled(SocialIcons)`
+  ${({ theme }) => theme.mq.desktop} {
+    display: none;
+  }
 `;
 
 function Navigation({ isOpen }) {
@@ -45,7 +73,7 @@ function Navigation({ isOpen }) {
         <NavigationEl>gdzie nas znaleźć?</NavigationEl>
         <NavigationEl>kontakt</NavigationEl>
         <NavigationEl>
-          <SocialIcons />
+          <StyledSocialIcons />
         </NavigationEl>
       </ul>
     </Wrapper>

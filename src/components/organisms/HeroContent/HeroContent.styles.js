@@ -1,14 +1,20 @@
 import styled from 'styled-components';
-import Arrow from '../../../assets/images/arrow-icon.svg';
 
-export const Wrapper = styled.div`
-  height: 91vh;
+export const HeroContentWrapper = styled.div`
+  height: 93vh;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, 1fr);
 
   ${({ theme }) => theme.mq.tablet} {
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-bottom: 5rem;
+  }
+  ${({ theme }) => theme.mq.desktop} {
+    padding-bottom: 0;
   }
 `;
 
@@ -21,8 +27,8 @@ export const TitleWrapper = styled.div`
   width: 100%;
 
   ${({ theme }) => theme.mq.tablet} {
-    grid-row: 2/3;
-    grid-column: 1/3;
+    margin-bottom: 5.5rem;
+    margin-left: 1rem;
   }
 `;
 
@@ -30,6 +36,13 @@ export const TitleUpper = styled.h1`
   font-size: ${({ theme }) => theme.font.size.xxl};
   font-weight: 800;
   color: ${({ theme }) => theme.black};
+
+  ${({ theme }) => theme.mq.desktop} {
+    font-size: ${({ theme }) => theme.font.size.xxxl};
+  }
+  ${({ theme }) => theme.mq.large} {
+    font-size: ${({ theme }) => theme.font.size.xxxxl};
+  }
 `;
 
 export const TitleLower = styled.h1`
@@ -38,7 +51,15 @@ export const TitleLower = styled.h1`
   color: ${({ theme }) => theme.purple};
   position: relative;
   text-align: center;
+  white-space: nowrap;
   width: 100%;
+
+  ${({ theme }) => theme.mq.desktop} {
+    font-size: ${({ theme }) => theme.font.size.xxxl};
+  }
+  ${({ theme }) => theme.mq.large} {
+    font-size: ${({ theme }) => theme.font.size.xxxxl};
+  }
 
   &::before {
     content: '';
@@ -51,59 +72,19 @@ export const TitleLower = styled.h1`
     background-color: ${({ theme }) => theme.lightPurple};
 
     ${({ theme }) => theme.mq.tablet} {
-      display: none;
+      height: 115px;
+      top: calc(50% - 1.5rem);
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    ${({ theme }) => theme.mq.desktop} {
+      height: 125px;
+      top: calc(50% + 1.3rem);
     }
   }
-`;
-
-export const BackgroundRectangle = styled.div`
-  display: none;
-  align-self: flex-end;
-  background-color: ${({ theme }) => theme.lightPurple};
-  width: 100%;
-  height: 50%;
 
   ${({ theme }) => theme.mq.tablet} {
-    grid-column: 1/5;
-    grid-row: 2/3;
-    display: inline-block;
-    display: none;
+    position: static;
   }
-`;
-
-export const ArrowWrapper = styled.button`
-  grid-row: 4/5;
-  justify-self: center;
-  align-self: flex-start;
-  background: none;
-  border: none;
-  width: 3.5rem;
-  height: 3.5rem;
-  cursor: pointer;
-  animation: ArrowBounce 2s infinite;
-
-  @keyframes ArrowBounce {
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-      transform: translateY(0);
-    }
-
-    40% {
-      transform: translateY(-30px);
-    }
-    60% {
-      transform: translateY(-15px);
-    }
-  }
-  ${({ theme }) => theme.mq.tablet} {
-    display: none;
-  }
-`;
-
-export const ArrowIcon = styled(Arrow)`
-  width: 100%;
-  height: auto;
 `;

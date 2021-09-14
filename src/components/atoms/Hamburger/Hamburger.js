@@ -10,6 +10,10 @@ const StyledHamburger = styled.button`
   justify-content: center;
   align-content: center;
   background: none;
+
+  ${({ theme }) => theme.mq.desktop} {
+    display: none;
+  }
 `;
 
 const InnerHamburger = styled.div`
