@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeroContentWrapper = styled.div`
-  height: 93vh;
+  height: 91vh;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, 1fr);
@@ -38,6 +38,7 @@ export const TitleUpper = styled.h1`
   color: ${({ theme }) => theme.black};
 
   ${({ theme }) => theme.mq.desktop} {
+    padding-right: 180px;
     font-size: ${({ theme }) => theme.font.size.xxxl};
   }
   ${({ theme }) => theme.mq.large} {
@@ -51,7 +52,7 @@ export const TitleLower = styled.h1`
   color: ${({ theme }) => theme.purple};
   position: relative;
   text-align: center;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   width: 100%;
 
   ${({ theme }) => theme.mq.desktop} {

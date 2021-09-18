@@ -23,6 +23,7 @@ function Hero() {
         src="../../../assets/images/hero.png"
         alt="hand with icecream"
         placeholder="NONE"
+        quality={100}
       />
 
       <ArrowButton />
