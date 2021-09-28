@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Arrow from '../../../assets/images/arrow-icon.svg';
+import Arrow from '../../../assets/images/icons/arrow-icon.svg';
 
 const ArrowWrapper = styled.button`
   grid-row: 4/5;
@@ -39,12 +39,12 @@ const ArrowIcon = styled(Arrow)`
   height: auto;
 `;
 
-function ArrowButton() {
+const ArrowButton = React.forwardRef(({ ...props }, ref) => {
   return (
-    <ArrowWrapper>
-      <ArrowIcon />
+    <ArrowWrapper ref={ref}>
+      <ArrowIcon {...props} />
     </ArrowWrapper>
   );
-}
+});
 
 export default ArrowButton;

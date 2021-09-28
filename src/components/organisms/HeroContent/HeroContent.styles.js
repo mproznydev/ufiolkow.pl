@@ -1,4 +1,22 @@
 import styled from 'styled-components';
+import Button from '../../atoms/Button/Button';
+
+export const StyledButton = styled(Button)`
+  display: none;
+
+  ${({ theme }) => theme.mq.tablet} {
+    display: unset;
+    font-size: 1rem;
+    margin-top: 0.8rem;
+    font-weight: 600;
+    box-shadow: 4px 3px 5px rgb(0 0 0 / 0.4);
+  }
+  ${({ theme }) => theme.mq.desktop} {
+    font-weight: 600;
+    width: 150px;
+    height: 35px;
+  }
+`;
 
 export const HeroContentWrapper = styled.div`
   height: 91vh;
@@ -15,6 +33,19 @@ export const HeroContentWrapper = styled.div`
   }
   ${({ theme }) => theme.mq.desktop} {
     padding-bottom: 0;
+  }
+`;
+
+export const ImageWrapper = styled.div`
+  display: none;
+
+  ${({ theme }) => theme.mq.tablet} {
+    width: fit-content;
+    max-width: 525px;
+    display: inline-block;
+  }
+  @media (min-width: 1540px) {
+    max-width: 630px;
   }
 `;
 
@@ -73,14 +104,18 @@ export const TitleLower = styled.h1`
     background-color: ${({ theme }) => theme.lightPurple};
 
     ${({ theme }) => theme.mq.tablet} {
-      height: 115px;
-      top: calc(50% - 1.5rem);
+      height: 140px;
+      top: calc(50% - 2.2rem);
       left: 50%;
       transform: translate(-50%, -50%);
     }
 
     ${({ theme }) => theme.mq.desktop} {
-      height: 125px;
+      height: 160px;
+      top: calc(50% + 1rem);
+    }
+    ${({ theme }) => theme.mq.large} {
+      height: 170px;
       top: calc(50% + 1.3rem);
     }
   }

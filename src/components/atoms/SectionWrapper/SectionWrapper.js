@@ -1,29 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   padding: 2rem 1rem;
   display: flex;
   position: relative;
+  overflow-x: hidden;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-
-  ::before {
-    content: '';
-    top: 28%;
-    right: 0;
-    left: ${({ isLeft }) => (isLeft ? 'auto' : '0')};
-    position: absolute;
-    width: 29%;
-    max-width: 35%;
-    border-radius: ${({ isLeft }) =>
-      isLeft ? '10px 0px 0px 10px' : '0px 10px 10px 0px'};
-    height: 40%;
-    background-color: ${({ theme }) => theme.lightPurple};
-    z-index: -3;
-  }
 
   ${({ theme }) => theme.mq.tablet} {
   }
@@ -32,21 +17,22 @@ const Wrapper = styled.div`
     gap: ${({ isGrid }) => (isGrid ? '2rem' : '0')};
     align-items: start;
     justify-content: space-between;
-    padding: 5rem 9vw;
+    padding: 5rem 6vw;
     flex-direction: ${({ isLeft }) => (isLeft ? 'row-reverse' : 'row')};
+  }
+  ${({ theme }) => theme.mq.large} {
+    padding: 5rem 10vw;
   }
 `;
 
-function SectionWrapper({ children, ...props }) {
-  return (
-    <Wrapper {...props}>
-      <>{children}</>
-    </Wrapper>
-  );
-}
-
-SectionWrapper.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+const SectionWrapper = React.forwardRef(
+  ({ children, className, ...props }, ref) => {
+    return (
+      <Wrapper {...props} ref={ref} className={className}>
+        <>{children}</>
+      </Wrapper>
+    );
+  }
+);
 
 export default SectionWrapper;

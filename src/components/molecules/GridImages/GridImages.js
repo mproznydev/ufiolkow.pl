@@ -24,7 +24,7 @@ const Grid = styled.div`
     margin-left: 0;
 
     > * {
-      max-width: 300px;
+      max-width: 260px;
     }
 
     > :nth-child(2n) {

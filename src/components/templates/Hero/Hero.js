@@ -2,13 +2,13 @@ import React from 'react';
 import Header from '../../organisms/Header/Header';
 import HeroContent from '../../organisms/HeroContent/HeroContent';
 
-function Hero() {
+const Hero = React.forwardRef((props, ref) => {
   return (
     <>
-      <Header />
-      <HeroContent />
+      <Header ref={ref} />
+      <HeroContent ref={ref} />
     </>
   );
-}
+});
 
 export default Hero;

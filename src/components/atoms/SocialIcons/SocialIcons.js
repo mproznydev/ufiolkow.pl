@@ -1,27 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import FbIcon from '../../../assets/images/fb-icon.svg';
-import InstaIcon from '../../../assets/images/insta-icon.svg';
+import FbIcon from '../../../assets/images/icons/fb-icon.svg';
+import InstaIcon from '../../../assets/images/icons/insta-icon.svg';
 
 const StyledFbIcon = styled(FbIcon)`
-  margin: 0 10px;
+  width: 30px;
+  color: black;
+  margin-right: 20px;
 `;
 const StyledInstaIcon = styled(InstaIcon)`
-  margin: 0 10px;
+  width: 30px;
+  color: black;
 `;
 
 function SocialIcons({ className }) {
   return (
     <div className={className}>
-      <StyledFbIcon />
-      <StyledInstaIcon />
+      <a
+        href="https://pl-pl.facebook.com/lodziarniaufiolkowkawiarnia/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <StyledFbIcon />
+      </a>
+      <a
+        href="https://www.instagram.com/lodziarnia_u_fiolkow/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <StyledInstaIcon />
+      </a>
     </div>
   );
 }
-
-SocialIcons.propTypes = {
-  className: PropTypes.string.isRequired,
-};
 
 export default SocialIcons;

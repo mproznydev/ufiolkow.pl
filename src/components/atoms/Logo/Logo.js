@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from '../../../assets/images/logo.svg';
+import Image from '../../../assets/images/icons/logo.svg';
 
 const LogoImg = styled(Image)`
   width: auto;

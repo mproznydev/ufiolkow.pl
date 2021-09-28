@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const TitleDescriptionWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-self: start;
+  position: relative;
+
   > * {
     margin-top: 0.85rem;
     margin-bottom: 0.65rem;

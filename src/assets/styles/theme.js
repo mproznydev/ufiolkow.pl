@@ -1,5 +1,5 @@
 export const theme = {
-  black: '#111111',
+  black: '#212529',
   purple: '#511972',
   lightPurple: '#F5E8FF',
   white: '#FFFFFF',
@@ -36,7 +36,7 @@ export const theme = {
     `,
   boxShadow:
     // 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;',
-    '0 10px 10px rgb(0 0 0 / 0.3)',
+    '8px 0px 8px rgba(0, 0, 0, 0.25)',
 };
 
 export default theme;

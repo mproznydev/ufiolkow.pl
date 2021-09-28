@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 const StyledHamburger = styled.button`
   padding: 1rem 0.8rem;
@@ -55,9 +54,5 @@ function Hamburger({ isOpen, ...props }) {
     </StyledHamburger>
   );
 }
-
-Hamburger.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-};
 
 export default Hamburger;

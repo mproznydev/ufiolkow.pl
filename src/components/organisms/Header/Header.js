@@ -18,20 +18,33 @@ const Wrapper = styled.div`
   }
 `;
 
-function Header() {
+const setHiddenScroll = () => {
+  if (document.body.style.overflow !== 'hidden') {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'scroll';
+  }
+};
+
+const Header = React.forwardRef((props, ref) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    setHiddenScroll();
   };
 
   return (
     <Wrapper>
       <Logo />
-      <Navigation isOpen={isMenuOpen} />
+      <Navigation
+        isOpen={isMenuOpen}
+        toggleMobileMenu={toggleMobileMenu}
+        ref={ref}
+      />
       <Hamburger onClick={toggleMobileMenu} isOpen={isMenuOpen} />
     </Wrapper>
   );
-}
+});
 
 export default Header;
