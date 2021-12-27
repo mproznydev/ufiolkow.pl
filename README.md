@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://pensive-wozniak-9d629d.netlify.app/">
-    <img src="https://raw.githubusercontent.com/mproznydev/ufiolkow.pl/8fc53c90169ece0aa769847b8bca6a7a7bba5ad5/src/assets/images/icons/logo.svg?token=AR7QJQC72XSWNQEUR6T7YJLBZGUY6" alt="Logo" width="300">
+    <img src="https://raw.githubusercontent.com/mproznydev/ufiolkow.pl/42436e83b6abb37371027f1ddd9e4b41ab779944/src/assets/images/icons/logo.svg?token=AR7QJQF4VKUA2X4MYZRIYRLBZGWNU" alt="Logo" width="300">
   </a>
 
   <h3 align="center">ufiolkow.pl :shaved_ice: :shaved_ice:</h3>
