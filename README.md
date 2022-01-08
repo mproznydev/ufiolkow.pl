@@ -25,6 +25,7 @@
 
 Simple and minimalistic landing page, fully responsive with contact form and map.
 <br/>
+live: https://pensive-wozniak-9d629d.netlify.app/
 
 Some of the key features:
 
