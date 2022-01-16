@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Formik } from 'formik';
 import axios from 'axios';
@@ -43,12 +43,26 @@ const StyledSectionWrapper = styled(SectionWrapper)`
 `;
 
 const Contact = React.forwardRef((props, ref) => {
+  const [isFormSend, setIsFormSend] = useState(false);
   const titleDescriptionRef = useRef(null);
 
   useEffect(() => {
     lazyLoading(titleDescriptionRef.current.children);
     lazyLoading(ref.current.children[1]);
   }, []);
+
+  const sendForm = async (values, resetForm) => {
+    try {
+      await axios.post('https://formspree.io/f/xvoddroz', {
+        email: values.email,
+        text: values.message,
+      });
+      resetForm();
+      setIsFormSend(true);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <StyledSectionWrapper isLeft ref={ref}>
@@ -116,13 +130,7 @@ const Contact = React.forwardRef((props, ref) => {
       </TitleDescriptionWrapper>
       <Formik
         initialValues={{ email: '', message: '' }}
-        onSubmit={(values, { resetForm }) => {
-          axios.post('https://formspree.io/f/xvoddroz', {
-            email: values.email,
-            text: values.message,
-          });
-          resetForm();
-        }}
+        onSubmit={(values, { resetForm }) => sendForm(values, resetForm)}
       >
         {({ values, handleChange, handleBlur, handleSubmit }) => (
           <FormWrapper onSubmit={handleSubmit}>
@@ -147,7 +155,7 @@ const Contact = React.forwardRef((props, ref) => {
               height="200px"
               required
             />
-            <Button type="submit">Wyślij</Button>
+            <Button type="submit">{isFormSend ? 'Wysłane' : 'Wyślij'}</Button>
           </FormWrapper>
         )}
       </Formik>
