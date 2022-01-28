@@ -30,6 +30,7 @@ live: https://pensive-wozniak-9d629d.netlify.app/
 Some of the key features:
 
 - responsive design 
+- lazy loading
 - leaflet map
 - contact form with Formspree
 - created with Gatsby
@@ -39,6 +40,7 @@ Some of the key features:
 - [Gatsby](https://www.gatsbyjs.com/)
 - [React.js](https://reactjs.org/)
 - [Styled-components](https://styled-components.com/)
+- [GSAP](https://greensock.com/gsap/)
 - [Leaflet](https://leafletjs.com/)
 - [Formik](https://formik.org/)
 - [Formspree](https://formspree.io/)
