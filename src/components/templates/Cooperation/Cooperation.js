@@ -5,7 +5,7 @@ import TitleSection from '../../atoms/TitleSection/TitleSection';
 import DescriptionSection from '../../atoms/DescriptionSection/DescriptionSection';
 import SectionWrapper from '../../atoms/SectionWrapper/SectionWrapper';
 import { TitleDescriptionWrapper } from '../../atoms/TitleDescriptionWrapper/TitleDescriptionWrapper';
-import '../../../assets/styles/imagesStyling.css';
+import '../../../assets/styles/ImagesStyling.css';
 import { lazyLoading } from '../../../assets/styles/animations';
 // import BqImage from '../../../../static/fewBlobs3.svg';
 import BqImage from '../../../../static/fewBlobsHoriz2.svg';

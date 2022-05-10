@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import '../../../assets/styles/imagesStyling.css';
+import '../../../assets/styles/ImagesStyling.css';
 import ArrowButton from '../../atoms/ArrowButton/ArrowButton';
 import { imageMovingOnScroll } from '../../../assets/styles/animations';
 import {
