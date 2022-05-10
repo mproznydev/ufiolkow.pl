@@ -4,19 +4,6 @@ module.exports = {
     title: 'ufiolkow.pl',
   },
   plugins: [
-    'gatsby-plugin-styled-components',
-    'prettier',
-    'eslint',
-    `gatsby-plugin-image`,
-    `gatsby-transformer-sharp`,
-    {
-      resolve: 'gatsby-plugin-react-svg',
-      options: {
-        rule: {
-          include: /assets/,
-        },
-      },
-    },
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
@@ -32,8 +19,6 @@ module.exports = {
           // Puts tracking script in the head instead of the body
           head: true,
           // Setting this parameter is also optional
-
-          origin: 'YOUR_SELF_HOSTED_ORIGIN',
         },
       },
     },
@@ -46,6 +31,19 @@ module.exports = {
           quality: 90,
           breakpoints: [668, 1024, 1366, 1540],
           backgroundColor: `transparent`,
+        },
+      },
+    },
+    'gatsby-plugin-styled-components',
+    'prettier',
+    'eslint',
+    `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/,
         },
       },
     },
