@@ -27,6 +27,7 @@ const Navigation = React.forwardRef(
               onClick={() => {
                 scrollInto(ref[index + 1]);
               }}
+              key={title}
             >
               {title}
             </NavigationEl>

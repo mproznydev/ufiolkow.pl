@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { StaticImage } from 'gatsby-plugin-image';
+import { getImage, GatsbyImage } from 'gatsby-plugin-image';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import TitleSection from '../../atoms/TitleSection/TitleSection';
 import DescriptionSection from '../../atoms/DescriptionSection/DescriptionSection';
 import SectionWrapper from '../../atoms/SectionWrapper/SectionWrapper';
@@ -33,8 +34,11 @@ const StyledSectionWrapper = styled(SectionWrapper)`
   }
 `;
 
-const Cooperation = React.forwardRef((props, ref) => {
+const Cooperation = React.forwardRef(({ data }, ref) => {
   const titleDescriptionRef = useRef(null);
+
+  const image = getImage(data.zdjecia[0].localFile);
+
   useEffect(() => {
     lazyLoading(titleDescriptionRef.current.children);
     lazyLoading(ref.current.children[1]);
@@ -43,21 +47,14 @@ const Cooperation = React.forwardRef((props, ref) => {
   return (
     <StyledSectionWrapper isLeft ref={ref}>
       <TitleDescriptionWrapper ref={titleDescriptionRef}>
-        <TitleSection isLeft>Współpraca</TitleSection>
+        <TitleSection isLeft>{data.tytul}</TitleSection>
         <DescriptionSection isLeft>
-          {' '}
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum qui
-          accusantium, error ab fugiat provident dolorum iure repudiandae ut!
-          Tempore nihil in soluta. Impedit adipisci temporibus facilis unde
-          deserunt perspiciatis quasi tempora ipsa aliquam iusto eveniet ducimus
-          recusandae laudantium fugiat minima labore, qui vel soluta excepturi
-          aspernatur nesciunt. Assumenda, quo!
+          {renderRichText(data.opis)}
         </DescriptionSection>
       </TitleDescriptionWrapper>
-      <StaticImage
-        src="../../../assets/images/photos/cooperation.jpg"
-        alt="image of boss"
-        placeholder="none"
+      <GatsbyImage
+        image={image}
+        alt={data.zdjecia[0].title}
         className="SectionImageWrapper"
       />
     </StyledSectionWrapper>

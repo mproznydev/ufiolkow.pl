@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import SectionWrapper from '../../atoms/SectionWrapper/SectionWrapper';
 import DescriptionSection from '../../atoms/DescriptionSection/DescriptionSection';
 import GridImages from '../../molecules/GridImages/GridImages';
@@ -28,8 +29,10 @@ const StyledSectionWrapper = styled(SectionWrapper)`
   }
 `;
 
-const Order = React.forwardRef((props, ref) => {
+const Order = React.forwardRef(({ data }, ref) => {
   const titleDescriptionRef = useRef(null);
+
+  const image = getImage(data.zdjecia[0].localFile);
 
   useEffect(() => {
     lazyLoading(titleDescriptionRef.current.children[0]);
@@ -40,41 +43,28 @@ const Order = React.forwardRef((props, ref) => {
   return (
     <StyledSectionWrapper isGrid ref={ref}>
       <TitleDescriptionWrapper ref={titleDescriptionRef}>
-        <TitleSection>Słodkości na zamówienie</TitleSection>
-        <DescriptionSection>
-          {' '}
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet
-          impedit a, saepe cumque magni delectus mollitia, incidunt voluptatibus
-          debitis, cum libero ipsa architecto dolorum sed itaque temporibus
-          animi non officiis vitae ullam recusandae. Quam minima dolor,
-          repudiandae deleniti autem a beatae magni numquam accusantium animi et
-          amet aliquam quod cupiditate, molestiae corporis ea ex non esse
-          quaerat hic pariatur temporibus!
-        </DescriptionSection>
+        <TitleSection>{data.tytul}</TitleSection>
+        <DescriptionSection>{renderRichText(data.opis)}</DescriptionSection>
       </TitleDescriptionWrapper>
       <GridImages>
-        <StaticImage
-          src="../../../assets/images/photos/cake3.jpg"
-          alt="image of boss"
-          placeholder="none"
+        <GatsbyImage
+          image={image}
+          alt={data.zdjecia[0].title}
           className="GridImageWrapper"
         />
-        <StaticImage
-          src="../../../assets/images/photos/cake.jpg"
-          alt="image of boss"
-          placeholder="none"
+        <GatsbyImage
+          image={image}
+          alt={data.zdjecia[1].title}
           className="GridImageWrapper"
         />
-        <StaticImage
-          src="../../../assets/images/photos/cake2.jpg"
-          alt="image of boss"
-          placeholder="none"
+        <GatsbyImage
+          image={image}
+          alt={data.zdjecia[2].title}
           className="GridImageWrapper"
         />
-        <StaticImage
-          src="../../../assets/images/photos/cake5.jpg"
-          alt="image of boss"
-          placeholder="none"
+        <GatsbyImage
+          image={image}
+          alt={data.zdjecia[3].title}
           className="GridImageWrapper"
         />
       </GridImages>

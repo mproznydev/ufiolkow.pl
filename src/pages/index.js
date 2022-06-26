@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => {
   const sectionsDataInOrder = data.allContentfulSekcje.nodes.sort(
     (a, b) => a.pozycja - b.pozycja
   );
-
+  console.log(sectionsDataInOrder);
   return (
     <>
       <MainTemplate>
@@ -62,7 +62,11 @@ export const query = graphql`
         pozycja
         zdjecia {
           title
-          url
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
       }
     }

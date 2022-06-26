@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import SectionWrapper from '../../atoms/SectionWrapper/SectionWrapper';
 import DescriptionSection from '../../atoms/DescriptionSection/DescriptionSection';
 import GridImages from '../../molecules/GridImages/GridImages';
@@ -28,8 +29,10 @@ const StyledSectionWrapper = styled(SectionWrapper)`
   }
 `;
 
-const Serve = React.forwardRef((props, ref) => {
+const Serve = React.forwardRef(({ data }, ref) => {
   const titleDescriptionRef = useRef(null);
+
+  const image = getImage(data.zdjecia[0].localFile);
 
   useEffect(() => {
     lazyLoading(titleDescriptionRef.current.children);
@@ -39,40 +42,30 @@ const Serve = React.forwardRef((props, ref) => {
   return (
     <StyledSectionWrapper isLeft isGrid ref={ref}>
       <TitleDescriptionWrapper ref={titleDescriptionRef}>
-        <TitleSection isLeft>Co serwujemy?</TitleSection>
+        <TitleSection isLeft>{data.tytul}</TitleSection>
         <DescriptionSection isLeft>
-          {' '}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eligendi
-          temporibus consectetur molestias perspiciatis illum in hic quos earum
-          recusandae dolor voluptatibus inventore excepturi quibusdam corrupti
-          porro magnam, vero, mollitia, veniam natus dignissimos aliquam. Quos,
-          voluptates quaerat totam in error sunt id sit perferendis incidunt
-          molestias maxime aperiam earum veritatis.
+          {renderRichText(data.opis)}
         </DescriptionSection>
       </TitleDescriptionWrapper>
       <GridImages>
-        <StaticImage
-          src="../../../assets/images/photos/icecream1.jpg"
-          alt="image of boss"
-          placeholder="none"
+        <GatsbyImage
+          image={image}
+          alt={data.zdjecia[0].title}
           className="GridImageWrapper"
         />
-        <StaticImage
-          src="../../../assets/images/photos/icecream2.jpg"
-          alt="image of boss"
-          placeholder="none"
+        <GatsbyImage
+          image={image}
+          alt={data.zdjecia[1].title}
           className="GridImageWrapper"
         />
-        <StaticImage
-          src="../../../assets/images/photos/icecream4.jpg"
-          alt="image of boss"
-          placeholder="none"
+        <GatsbyImage
+          image={image}
+          alt={data.zdjecia[2].title}
           className="GridImageWrapper"
         />
-        <StaticImage
-          src="../../../assets/images/photos/icecream3.jpg"
-          alt="image of boss"
-          placeholder="none"
+        <GatsbyImage
+          image={image}
+          alt={data.zdjecia[3].title}
           className="GridImageWrapper"
         />
       </GridImages>
