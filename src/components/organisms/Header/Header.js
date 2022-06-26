@@ -26,7 +26,7 @@ const setHiddenScroll = () => {
   }
 };
 
-const Header = React.forwardRef((props, ref) => {
+const Header = React.forwardRef(({ data }, ref) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -38,6 +38,7 @@ const Header = React.forwardRef((props, ref) => {
     <Wrapper>
       <Logo />
       <Navigation
+        navigations={data}
         isOpen={isMenuOpen}
         toggleMobileMenu={toggleMobileMenu}
         ref={ref}

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useRef } from 'react';
+import { graphql } from 'gatsby';
 import MainTemplate from '../components/templates/MainTemplate';
 import Hero from '../components/templates/Hero/Hero';
 import About from '../components/templates/About/About';
@@ -10,7 +11,7 @@ import WhereFind from '../components/templates/WhereFind/WhereFind';
 import Contact from '../components/templates/Contact/Contact';
 import Footer from '../components/templates/Footer/Footer';
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
   const heroRef = useRef(null);
   const aboutRef = useRef(null);
   const serveRef = useRef(null);
@@ -18,6 +19,10 @@ const IndexPage = () => {
   const cooperationRef = useRef(null);
   const whereFindRef = useRef(null);
   const contactRef = useRef(null);
+
+  const sectionsDataInOrder = data.allContentfulSekcje.nodes.sort(
+    (a, b) => a.pozycja - b.pozycja
+  );
 
   return (
     <>
@@ -32,17 +37,36 @@ const IndexPage = () => {
             whereFindRef,
             contactRef,
           ]}
+          data={sectionsDataInOrder}
         />
-        <About ref={aboutRef} />
-        <Serve ref={serveRef} />
-        <Order ref={OrderRef} />
-        <Cooperation ref={cooperationRef} />
-        <WhereFind ref={whereFindRef} />
+        <About ref={aboutRef} data={sectionsDataInOrder[0]} />
+        <Serve ref={serveRef} data={sectionsDataInOrder[1]} />
+        <Order ref={OrderRef} data={sectionsDataInOrder[2]} />
+        <Cooperation ref={cooperationRef} data={sectionsDataInOrder[3]} />
+        <WhereFind ref={whereFindRef} data={sectionsDataInOrder[4]} />
         <Contact ref={contactRef} />
         <Footer />
       </MainTemplate>
     </>
   );
 };
+
+export const query = graphql`
+  query MyQuery {
+    allContentfulSekcje {
+      nodes {
+        opis {
+          raw
+        }
+        tytul
+        pozycja
+        zdjecia {
+          title
+          url
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;

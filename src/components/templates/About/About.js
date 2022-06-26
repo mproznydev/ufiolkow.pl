@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
+import { graphql } from 'gatsby';
 import TitleSection from '../../atoms/TitleSection/TitleSection';
 import DescriptionSection from '../../atoms/DescriptionSection/DescriptionSection';
 import SectionWrapper from '../../atoms/SectionWrapper/SectionWrapper';
@@ -32,7 +33,7 @@ const StyledSectionWrapper = styled(SectionWrapper)`
 
 const About = React.forwardRef((props, ref) => {
   const titleDescriptionRef = useRef(null);
-
+  console.log(props);
   useEffect(() => {
     lazyLoading(titleDescriptionRef.current.children);
     lazyLoading(ref.current.children[1]);

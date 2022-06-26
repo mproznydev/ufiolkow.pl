@@ -12,7 +12,7 @@ import {
   StyledButton,
 } from './HeroContent.styles';
 
-const Hero = React.forwardRef((props, ref) => {
+const Hero = React.forwardRef(({ data }, ref) => {
   const imageRef = useRef(null);
 
   useEffect(() => {
