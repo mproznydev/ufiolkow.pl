@@ -10,6 +10,13 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `004al2u8j8rx`,
+        accessToken: 'pUbvEnb3V1fRZKD2SGr83_dQh7Y2QRusrTuuu25uk5A',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
