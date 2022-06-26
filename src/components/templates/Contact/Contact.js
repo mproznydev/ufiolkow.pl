@@ -5,7 +5,7 @@ import axios from 'axios';
 import TitleSection from '../../atoms/TitleSection/TitleSection';
 import SectionWrapper from '../../atoms/SectionWrapper/SectionWrapper';
 import { TitleDescriptionWrapper } from '../../atoms/TitleDescriptionWrapper/TitleDescriptionWrapper';
-import '../../../assets/styles/imagesStyling.css';
+import '../../../assets/styles/ImagesStyling.css';
 import Button from '../../atoms/Button/Button';
 import { lazyLoading } from '../../../assets/styles/animations';
 import {

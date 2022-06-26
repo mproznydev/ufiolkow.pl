@@ -1,54 +1,73 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+<div id="top"></div>
+
+<br />
+<div align="center">
+  <a href="https://pensive-wozniak-9d629d.netlify.app/">
+    <img src="https://raw.githubusercontent.com/mproznydev/ufiolkow.pl/42436e83b6abb37371027f1ddd9e4b41ab779944/src/assets/images/icons/logo.svg?token=AR7QJQF4VKUA2X4MYZRIYRLBZGWNU" alt="Logo" width="300">
   </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
 
-## 🚀 Quick start
+  <h3 align="center">ufiolkow.pl :shaved_ice: :shaved_ice:</h3>
 
-1.  **Create a Gatsby site.**
+  <p align="center">
+   Landing page created for coffee and ice-cream shop 
+    <br />
+    <br />
+    <br />
+    <a href="https://pensive-wozniak-9d629d.netlify.app/">Open live</a>
+    ·
+    <a href="https://github.com/mproznydev/ufiolkow.pl/issues">Report Bug</a>
+  </p>
+</div>
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+## About The Project :ice_cream:
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+![](https://github.com/mproznydev/ufiolkow.pl/blob/master/src/assets/demo/demo.webp)
 
-2.  **Start developing.**
+Simple and minimalistic landing page, fully responsive with contact form and map.
+<br/>
+live: https://pensive-wozniak-9d629d.netlify.app/
 
-    Navigate into your new site’s directory and start it up.
+Some of the key features:
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+- responsive design 
+- lazy loading
+- leaflet map
+- contact form with Formspree
+- created with Gatsby
 
-3.  **Open the code and start customizing!**
+### Built With :hammer:
 
-    Your site is now running at http://localhost:8000!
+- [Gatsby](https://www.gatsbyjs.com/)
+- [React.js](https://reactjs.org/)
+- [Styled-components](https://styled-components.com/)
+- [GSAP](https://greensock.com/gsap/)
+- [Leaflet](https://leafletjs.com/)
+- [Formik](https://formik.org/)
+- [Formspree](https://formspree.io/)
 
-    Edit `src/pages/index.js` to see your site update in real-time!
 
-4.  **Learn more**
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## Getting Started
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+To get a local copy up and running follow these simple steps.
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+### Installation
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+1. Clone the repo
+   ```sh
+   git clone git@github.com:mproznydev/ufiolkow.pl.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run the dev server
+   ```sh
+   npm run develop
+   ```
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+<p align="right">(<a href="#top">back to top</a>)</p
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
-## 🚀 Quick start (Gatsby Cloud)
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)

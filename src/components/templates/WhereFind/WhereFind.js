@@ -69,7 +69,6 @@ const WhereFind = React.forwardRef(({ data }, ref) => {
       </TitleDescriptionWrapper>
       {isBrowser ? (
         <MapWrapper>
-          {' '}
           <MapContainer
             center={[50.347069, 18.920927]}
             zoom={18}

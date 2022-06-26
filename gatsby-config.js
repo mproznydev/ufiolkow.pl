@@ -4,11 +4,6 @@ module.exports = {
     title: 'ufiolkow.pl',
   },
   plugins: [
-    'gatsby-plugin-styled-components',
-    'prettier',
-    'eslint',
-    `gatsby-plugin-image`,
-    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -17,11 +12,22 @@ module.exports = {
         downloadLocal: true,
       },
     },
+    { resolve: 'gatsby-plugin-react-svg' },
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        rule: {
-          include: /assets/,
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          'G-REFYKK23ER', // Google Analytics / GA
+        ],
+        // This object gets passed directly to the gtag config command
+        // This config will be shared across all trackingIds
+
+        // This object is used for configuration specific to this plugin
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: true,
+          // Setting this parameter is also optional
         },
       },
     },
@@ -34,6 +40,19 @@ module.exports = {
           quality: 90,
           breakpoints: [668, 1024, 1366, 1540],
           backgroundColor: `transparent`,
+        },
+      },
+    },
+    'gatsby-plugin-styled-components',
+    'prettier',
+    'eslint',
+    `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/,
         },
       },
     },
