@@ -1,11 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import logo from '../assets/images/icons/logo.svg';
 
 function SEO() {
   return (
     <Helmet>
       <html lang="pl" />
-      <title>uFiolkow</title>
+      <title>uFiołków</title>
+      {/* <link key="icon" rel="icon" href="../assets/images/icons/logo.svg" /> */}
       <link
         rel="stylesheet"
         href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"

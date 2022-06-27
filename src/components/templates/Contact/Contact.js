@@ -53,7 +53,7 @@ const Contact = React.forwardRef((props, ref) => {
 
   const sendForm = async (values, resetForm) => {
     try {
-      await axios.post('https://formspree.io/f/xvoddroz', {
+      await axios.post('https://formspree.io/f/mnqwyokn', {
         email: values.email,
         text: values.message,
       });

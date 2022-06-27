@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://www.yourdomain.tld',
+    siteUrl: 'http://ufiolkow.pl/',
     title: 'ufiolkow.pl',
   },
   plugins: [
@@ -40,6 +40,13 @@ module.exports = {
           breakpoints: [668, 1024, 1366, 1540],
           backgroundColor: `transparent`,
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        start_url: `/`,
+        icon: `src/assets/images/icons/logo-white.svg`, // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-styled-components',
