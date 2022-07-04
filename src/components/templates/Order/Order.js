@@ -32,7 +32,9 @@ const StyledSectionWrapper = styled(SectionWrapper)`
 const Order = React.forwardRef(({ data }, ref) => {
   const titleDescriptionRef = useRef(null);
 
-  const image = getImage(data.zdjecia[0].localFile);
+  const getImageByNumber = (number) => {
+    return getImage(data.zdjecia[number].localFile);
+  };
 
   useEffect(() => {
     lazyLoading(titleDescriptionRef.current.children[0]);
@@ -48,22 +50,22 @@ const Order = React.forwardRef(({ data }, ref) => {
       </TitleDescriptionWrapper>
       <GridImages>
         <GatsbyImage
-          image={image}
+          image={getImageByNumber(0)}
           alt={data.zdjecia[0].title}
           className="GridImageWrapper"
         />
         <GatsbyImage
-          image={image}
+          image={getImageByNumber(1)}
           alt={data.zdjecia[1].title}
           className="GridImageWrapper"
         />
         <GatsbyImage
-          image={image}
+          image={getImageByNumber(2)}
           alt={data.zdjecia[2].title}
           className="GridImageWrapper"
         />
         <GatsbyImage
-          image={image}
+          image={getImageByNumber(3)}
           alt={data.zdjecia[3].title}
           className="GridImageWrapper"
         />

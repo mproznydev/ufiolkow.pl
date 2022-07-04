@@ -36,12 +36,14 @@ export const StyledDescriptionSection = styled(DescriptionSection)`
     }
     svg {
       margin-right: 7px;
-      color: #9127ce;
+      color: #000000;
     }
   }
   a {
     text-decoration: none;
     display: flex;
+    align-items: center;
+    justify-content: center;
 
     color: ${({ theme }) => theme.black};
   }

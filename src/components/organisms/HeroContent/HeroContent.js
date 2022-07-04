@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import '../../../assets/styles/ImagesStyling.css';
 import ArrowButton from '../../atoms/ArrowButton/ArrowButton';
@@ -10,20 +10,31 @@ import {
   TitleLower,
   ImageWrapper,
   StyledButton,
+  CookiesWrapper,
 } from './HeroContent.styles';
 
 const Hero = React.forwardRef(({ data }, ref) => {
   const imageRef = useRef(null);
+  const [isCookiesConsent, setIsCookiesConsent] = useState(true);
 
   useEffect(() => {
     const image = imageRef.current;
     imageMovingOnScroll(image);
   }, []);
 
+  const handleAcceptCookies = () => {
+    window.localStorage.setItem('cookiesConsent', 'true');
+    setIsCookiesConsent(true);
+  };
+
+  useEffect(() => {
+    setIsCookiesConsent(window.localStorage.getItem('cookiesConsent'));
+  }, []);
+
   return (
     <HeroContentWrapper>
       <TitleWrapper>
-        <TitleUpper>Witamy </TitleUpper>
+        <TitleUpper>Witamy</TitleUpper>
         <TitleLower>u Fiołków</TitleLower>
         <StyledButton
           ref={ref}
@@ -33,7 +44,7 @@ const Hero = React.forwardRef(({ data }, ref) => {
             });
           }}
         >
-          Zapraszamy!
+          Sprawdź nasze menu!
         </StyledButton>
       </TitleWrapper>
       <ImageWrapper ref={imageRef}>
@@ -54,6 +65,14 @@ const Hero = React.forwardRef(({ data }, ref) => {
           });
         }}
       />
+      {!isCookiesConsent ? (
+        <CookiesWrapper>
+          <p>Ta strona wykorzystuję pliki cookie</p>
+          <button type="button" onClick={handleAcceptCookies}>
+            akceptuje
+          </button>
+        </CookiesWrapper>
+      ) : null}
     </HeroContentWrapper>
   );
 });

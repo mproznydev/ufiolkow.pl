@@ -17,8 +17,6 @@ const Navigation = React.forwardRef(
     };
     const navigationsTitles = navigations.map((navigation) => navigation.tytul);
 
-    navigationsTitles.push('Kontakt');
-
     return (
       <Wrapper isOpen={isOpen} ref={ref}>
         <ul>

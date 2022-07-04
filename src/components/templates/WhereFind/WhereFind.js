@@ -1,7 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import markerIconPng from 'leaflet/dist/images/marker-icon.png';
+import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import { Icon } from 'leaflet';
 import TitleSection from '../../atoms/TitleSection/TitleSection';
 import DescriptionSection from '../../atoms/DescriptionSection/DescriptionSection';
 import SectionWrapper from '../../atoms/SectionWrapper/SectionWrapper';
@@ -79,7 +81,15 @@ const WhereFind = React.forwardRef(({ data }, ref) => {
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={[50.34696558475493, 18.92099801961394]}>
+            <Marker
+              position={[50.34696558475493, 18.92099801961394]}
+              icon={
+                new Icon({
+                  iconUrl: markerIconPng,
+                  iconSize: [25, 41],
+                })
+              }
+            >
               <Popup>Tutaj jesteśmy!</Popup>
             </Marker>
           </MapContainer>
