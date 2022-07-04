@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import styled from 'styled-components';
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import TitleSection from '../../atoms/TitleSection/TitleSection';
 import DescriptionSection from '../../atoms/DescriptionSection/DescriptionSection';
 import SectionWrapper from '../../atoms/SectionWrapper/SectionWrapper';
@@ -30,9 +31,10 @@ const StyledSectionWrapper = styled(SectionWrapper)`
   }
 `;
 
-const About = React.forwardRef((props, ref) => {
+const About = React.forwardRef(({ data }, ref) => {
   const titleDescriptionRef = useRef(null);
 
+  const image = getImage(data.zdjecia[0].localFile);
   useEffect(() => {
     lazyLoading(titleDescriptionRef.current.children);
     lazyLoading(ref.current.children[1]);
@@ -41,20 +43,12 @@ const About = React.forwardRef((props, ref) => {
   return (
     <StyledSectionWrapper ref={ref}>
       <TitleDescriptionWrapper ref={titleDescriptionRef}>
-        <TitleSection>O nas</TitleSection>
-        <DescriptionSection>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut
-          doloribus, neque harum quae mollitia, nobis eum id ratione dolore
-          sequi ullam voluptas eius optio illo dignissimos impedit tenetur, odio
-          corporis? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Accusamus id tempore ex eos repellendus error laudantium incidunt.
-          Eaque, dignissimos odit!
-        </DescriptionSection>
+        <TitleSection>{data.tytul}</TitleSection>
+        <DescriptionSection>{renderRichText(data.opis)}</DescriptionSection>
       </TitleDescriptionWrapper>
-      <StaticImage
-        src="../../../assets/images/photos/aboutPhoto.jpg"
-        alt="image of boss"
-        placeholder="none"
+      <GatsbyImage
+        image={image}
+        alt={data.zdjecia[0].title}
         className="SectionImageWrapper"
       />
     </StyledSectionWrapper>
