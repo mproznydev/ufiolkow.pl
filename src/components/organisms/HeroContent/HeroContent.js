@@ -10,26 +10,26 @@ import {
   TitleLower,
   ImageWrapper,
   StyledButton,
-  CookiesWrapper,
+  // CookiesWrapper,
 } from './HeroContent.styles';
 
 const Hero = React.forwardRef(({ data }, ref) => {
   const imageRef = useRef(null);
-  const [isCookiesConsent, setIsCookiesConsent] = useState(true);
+  // const [isCookiesConsent, setIsCookiesConsent] = useState(true);
 
   useEffect(() => {
     const image = imageRef.current;
     imageMovingOnScroll(image);
   }, []);
 
-  const handleAcceptCookies = () => {
-    window.localStorage.setItem('cookiesConsent', 'true');
-    setIsCookiesConsent(true);
-  };
+  // const handleAcceptCookies = () => {
+  //   window.localStorage.setItem('cookiesConsent', 'true');
+  //   setIsCookiesConsent(true);
+  // };
 
-  useEffect(() => {
-    setIsCookiesConsent(window.localStorage.getItem('cookiesConsent'));
-  }, []);
+  // useEffect(() => {
+  //   setIsCookiesConsent(window.localStorage.getItem('cookiesConsent'));
+  // }, []);
 
   return (
     <HeroContentWrapper>
@@ -65,14 +65,14 @@ const Hero = React.forwardRef(({ data }, ref) => {
           });
         }}
       />
-      {!isCookiesConsent ? (
+      {/* {!isCookiesConsent ? (
         <CookiesWrapper>
           <p>Ta strona wykorzystuję pliki cookie</p>
           <button type="button" onClick={handleAcceptCookies}>
             akceptuje
           </button>
         </CookiesWrapper>
-      ) : null}
+      ) : null} */}
     </HeroContentWrapper>
   );
 });
