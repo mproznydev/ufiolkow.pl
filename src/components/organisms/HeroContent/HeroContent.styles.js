@@ -2,19 +2,24 @@ import styled from 'styled-components';
 import Button from '../../atoms/Button/Button';
 
 export const StyledButton = styled(Button)`
-  display: none;
+  font-size: 0.9rem;
+  margin-top: 2.5rem;
+  font-weight: 600;
+  width: 135px;
+  height: 55px;
+  box-shadow: 4px 3px 5px rgb(0 0 0 / 0.4);
 
   ${({ theme }) => theme.mq.tablet} {
-    display: unset;
     font-size: 1rem;
     margin-top: 0.8rem;
-    font-weight: 600;
-    box-shadow: 4px 3px 5px rgb(0 0 0 / 0.4);
+    width: 150px;
+    height: 55px;
   }
+
   ${({ theme }) => theme.mq.desktop} {
     font-weight: 600;
-    width: 150px;
-    height: 35px;
+    width: 160px;
+    height: 60px;
   }
 `;
 
@@ -82,6 +87,8 @@ export const TitleLower = styled.h1`
   font-weight: 800;
   color: ${({ theme }) => theme.purple};
   position: relative;
+  white-space: nowrap;
+  overflow: visible;
   text-align: center;
   /* white-space: nowrap; */
   width: 100%;
@@ -104,23 +111,63 @@ export const TitleLower = styled.h1`
     background-color: ${({ theme }) => theme.lightPurple};
 
     ${({ theme }) => theme.mq.tablet} {
-      height: 140px;
+      height: 165px;
       top: calc(50% - 2.2rem);
       left: 50%;
       transform: translate(-50%, -50%);
     }
 
     ${({ theme }) => theme.mq.desktop} {
-      height: 160px;
+      height: 183px;
       top: calc(50% + 1rem);
     }
     ${({ theme }) => theme.mq.large} {
-      height: 170px;
+      height: 195px;
       top: calc(50% + 1.3rem);
     }
   }
 
   ${({ theme }) => theme.mq.tablet} {
     position: static;
+  }
+`;
+
+export const CookiesWrapper = styled.h1`
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  border-radius: 12px 12px 0 0;
+  padding: 0 1rem;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5e8ffc7;
+  p {
+    font-size: 15px;
+    font-weight: 500;
+    width: 100%;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+  }
+  button {
+    background-color: ${({ theme }) => theme.purple};
+    color: white;
+    align-self: center;
+    border-radius: 13px;
+    width: 150px;
+    font-family: 'Montserrat', sans-serif;
+    height: 32px;
+    box-shadow: 0 3px 4px rgb(0 0 0 / 0.3);
+    border: none;
+    font-size: ${({ theme }) => theme.font.size.xs};
+    cursor: pointer;
+    :hover {
+      transform: scale(1.05);
+    }
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 4px 3px 5px rgb(0 0 0 / 0.4);
   }
 `;

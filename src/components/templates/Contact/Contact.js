@@ -53,7 +53,7 @@ const Contact = React.forwardRef((props, ref) => {
 
   const sendForm = async (values, resetForm) => {
     try {
-      await axios.post('https://formspree.io/f/xvoddroz', {
+      await axios.post('https://formspree.io/f/mnqwyokn', {
         email: values.email,
         text: values.message,
       });
@@ -80,13 +80,7 @@ const Contact = React.forwardRef((props, ref) => {
             <li>
               <a href="tel:602178613">
                 <StyledPhoneIcon />
-                <p>do właściela +48 692 243 342</p>
-              </a>
-            </li>
-            <li>
-              <a href="tel:602178613">
-                <StyledPhoneIcon />
-                <p>do lodziarni +48 622 244 342</p>
+                <p>+48 692 243 342</p>
               </a>
             </li>
             <li>
@@ -106,7 +100,7 @@ const Contact = React.forwardRef((props, ref) => {
                 rel="noreferrer"
               >
                 <StyledFbIcon />
-                /lodziarniaufiolkowkawiarnia
+                facebook
               </a>
             </li>
             <li>
@@ -116,15 +110,15 @@ const Contact = React.forwardRef((props, ref) => {
                 rel="noreferrer"
               >
                 <StyledInstaIcon />
-                /lodziarnia_u_fiolkow
+                instagram
               </a>
             </li>
-            <li>
+            {/* <li>
               <a href="mailto:ufiolkow@gmail.com">
                 <StyledEmailIcon />
-                /ufiolkow@gmial.com
+                mail
               </a>
-            </li>
+            </li> */}
           </ul>
         </StyledDescriptionSection>
       </TitleDescriptionWrapper>

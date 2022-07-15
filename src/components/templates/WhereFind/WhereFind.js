@@ -1,6 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import markerIconPng from 'leaflet/dist/images/marker-icon.png';
+import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import { Icon } from 'leaflet';
 import TitleSection from '../../atoms/TitleSection/TitleSection';
 import DescriptionSection from '../../atoms/DescriptionSection/DescriptionSection';
 import SectionWrapper from '../../atoms/SectionWrapper/SectionWrapper';
@@ -48,7 +51,7 @@ const MapWrapper = styled.div`
   }
 `;
 
-const WhereFind = React.forwardRef((props, ref) => {
+const WhereFind = React.forwardRef(({ data }, ref) => {
   const isBrowser = typeof window !== 'undefined';
   const titleDescriptionRef = useRef(null);
 
@@ -60,17 +63,10 @@ const WhereFind = React.forwardRef((props, ref) => {
   return (
     <StyledSectionWrapper ref={ref}>
       <TitleDescriptionWrapper ref={titleDescriptionRef}>
-        <TitleSection>Gdzie nas znaleźć?</TitleSection>
+        <TitleSection>{data.tytul}</TitleSection>
         <DescriptionSection>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-          delectus, non cum enim dolorem exercitationem facere doloribus veniam
-          vitae a velit repudiandae magni officiis unde modi explicabo, ut ipsum
-          repellendus, mollitia in sit ullam culpa? Incidunt, praesentium. Aut
-          provident perspiciatis nulla eligendi et velit quam impedit, labore
-          cupiditate temporibus. Nesciunt.
-          <a href="https://www.google.pl/maps/dir//Lodziarnia+U+Fio%C5%82k%C3%B3w+Kawiarnia,+Gliwicka+27%2F29,+41-902+Bytom/@50.4089754,18.9945165,12z/data=!4m9!4m8!1m0!1m5!1m1!1s0x4716d32f6fe48955:0xe4b2ed1c5e47e6c2!2m2!1d18.9210191!2d50.3469171!3e0">
-            Jak dojechać?
-          </a>
+          {renderRichText(data.opis)}
+          {/* <a href="https://www.google.pl/maps/dir//Lodziarnia+U+Fio%C5%82k%C3%B3w+Kawiarnia,+Gliwicka+27%2F29,+41-902+Bytom/@50.4089754,18.9945165,12z/data=!4m9!4m8!1m0!1m5!1m1!1s0x4716d32f6fe48955:0xe4b2ed1c5e47e6c2!2m2!1d18.9210191!2d50.3469171!3e0" /> */}
         </DescriptionSection>
       </TitleDescriptionWrapper>
       {isBrowser ? (
@@ -85,7 +81,15 @@ const WhereFind = React.forwardRef((props, ref) => {
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={[50.34696558475493, 18.92099801961394]}>
+            <Marker
+              position={[50.34696558475493, 18.92099801961394]}
+              icon={
+                new Icon({
+                  iconUrl: markerIconPng,
+                  iconSize: [25, 41],
+                })
+              }
+            >
               <Popup>Tutaj jesteśmy!</Popup>
             </Marker>
           </MapContainer>
